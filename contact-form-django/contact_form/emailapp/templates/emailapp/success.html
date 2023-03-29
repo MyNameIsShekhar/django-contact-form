@@ -1,0 +1,43 @@
+{% load static %}
+
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="{% static 'css/success.css' %}">    
+
+  </head>
+
+  <body>
+    <div id="particles-js"></div>
+
+    <div class="success-msg">
+      {% if view_name == 'index' %}
+        <h3>Your message has been successfully sent!</h3>
+      {% elif view_name == 'spam' %}
+          <h3>Too many requests.<br>Try again later.</h3>
+      {% elif view_name == "redirect_error" %}
+          <h3>ERROR 404</h3>
+      {% elif view_name == "mail_error" %}
+      <h3>Failed to send email</h3>
+      {% elif view_name == "smth_wrng" %}
+      <h3>Something wrong...</h3>
+      {% endif %}
+      <a id="main-btn"><i class="bi bi-house-fill"> Main page</i></a>
+      
+      <div id="timer-container">
+        <p>In <span id="timer">20</span> seconds you will be redirected to the main page</p>
+      </div>
+    </div>
+    
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="{% static 'js/timer.js' %}"></script>
+    <script src="{% static 'js/particles.js' %}"></script>
+
+  </body>
+
+</html>
